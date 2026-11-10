@@ -1,21 +1,39 @@
-# BAR DANCE WORLD — Unity Starter v0.1
+# BAR DANCE WORLD — iOS Online Prototype v0.2
 
-This is a **starter project**, not a finished game and not a built APK/IPA.
-It provides a minimal Unity project structure and a few C# starting scripts.
-
-## Open in Unity
-1. Install Unity Hub and a compatible Unity Editor on a computer or supported cloud build machine.
-2. In Unity Hub, choose **Add project from disk** and select this folder.
-3. Allow Unity to resolve packages and import assets.
-4. Fix any compile errors before configuring Android/iOS builds.
+This is an upgraded Unity 6 prototype foundation, not a finished online game or an IPA.
+Unity Editor target: 6000.0.23f1.
 
 ## Included
-- `Assets/Scripts/` — basic gameplay scaffolding
-- `Packages/manifest.json` — Unity package manifest
-- `ProjectSettings/ProjectVersion.txt` — editor version marker
+- Procedural 3D neon nightclub scene generator (no third-party assets required).
+- Editor menu to create and save a playable prototype scene.
+- Basic player profile and coin manager.
+- iOS build preparation checklist.
+- Explicit online multiplayer implementation plan.
 
-## Important limitations
-- No 3D character models, animations, music, maps, networking, voice chat, payments, backend, or admin dashboard are included.
-- The scripts are placeholders for future implementation.
-- Building iOS requires macOS/Xcode and Apple signing credentials. TestFlight distribution requires Apple Developer Program membership.
-- Uploading this project to GitHub does not itself build the game.
+## Create the scene
+1. Open this folder as a Unity project using Unity 6000.0.23f1 or a compatible Unity 6 editor.
+2. Wait for package import.
+3. In Unity, choose `BAR DANCE WORLD > Create Prototype Scene`.
+4. Save the generated scene at `Assets/Scenes/BarDanceWorld.unity`.
+5. Open the scene and press Play.
+
+The scene uses generated primitives and Unity lights. It is a visual prototype, not final photorealistic art.
+
+## Online status — important
+Online multiplayer is NOT implemented in this prototype. A real online release still needs a networking stack (for example Netcode for GameObjects + Unity Transport), Lobby/Relay or dedicated servers, player authentication, matchmaking, reconnect handling, server-authoritative scoring, moderation, and load testing. Do not advertise multiplayer as working until these are implemented and tested with multiple devices.
+
+## iOS requirements
+- iOS builds must be produced on macOS with Xcode, either locally or by a supported cloud build service.
+- Configure a unique Bundle Identifier in Player Settings.
+- Set iOS minimum version based on the chosen Unity packages/devices.
+- Apple signing certificate and provisioning profile are required for device/TestFlight distribution.
+- TestFlight/App Store distribution requires Apple Developer Program membership.
+- Uploading source code to GitHub does not itself create an iOS app.
+
+## GitHub source layout
+Keep the Unity project root at repository root:
+- Assets/
+- Packages/
+- ProjectSettings/
+
+Do not upload only the ZIP file. Exclude `Library/`, `Temp/`, `Obj/`, `Build/`, and `.DS_Store`.
